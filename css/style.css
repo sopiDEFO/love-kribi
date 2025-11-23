@@ -1,0 +1,807 @@
+/* VARIABLES GLOBALES */
+:root {
+    --primary-color: #007bff; /* Bleu Océan pour l'action */
+    --secondary-color: #f7a000; /* Jaune/Sable pour le contraste */
+    --text-color: #333;
+    --light-bg: #f4f4f4;
+    --dark-bg: #222;
+    --font-stack: 'Poppins', sans-serif;
+}
+ .close-btn{
+    display: none;
+}
+
+
+
+
+/* RESET ET TYPOGRAPHIE DE BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+ h2, h3, h4 {
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* BOUTONS */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: var(--dark-bg);
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background: #e69100;
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+.btn-alt {
+    background: var(--dark-bg);
+    color: white;
+    border: 2px solid var(--dark-bg);
+}
+
+/* HEADER & NAVIGATION */
+.main-header {
+    background: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Reste en haut au défilement */
+    top: 0;
+    z-index: 1000;
+    animation: 3s;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.main-nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none; /* Caché sur desktop */
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* SECTION HÉRO */
+.hero-section {
+    background: url('../images/hero_kribi_placeholder.jpg') no-repeat center center/cover; /* REMPLACER PAR VOTRE IMAGE */
+    height: 80vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Overlay sombre pour lisibilité */
+}
+
+.hero-content {
+    z-index: 10;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* APERÇU DES PROPRIÉTÉS */
+.properties-overview {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.property-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.property-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.card-info p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* SECTION CTA (Call to Action) */
+.cta-section {
+    background: var(--primary-color);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+
+/* FOOTER */
+.main-footer {
+    background: var(--dark-bg);
+    color: white;
+    padding: 40px 0;
+    font-size: 0.9rem;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Assure le retour à la ligne sur mobile */
+}
+
+.footer-col {
+    width: 30%; /* Ajustement pour desktop */
+    margin-bottom: 20px;
+}
+
+.footer-col h4 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+}
+
+.footer-col ul li a:hover {
+    color: var(--secondary-color);
+}
+
+/* Bouton WhatsApp */
+.btn-whatsapp {
+    background: var(--whatsapp-color); 
+    /* color: white; */
+    /* border: none; */
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-whatsapp:hover {
+    background: #128c7e;
+    transform: scale(1.05); 
+}
+
+/* HEADER & NAVIGATION (AVEC ANIMATION) */
+.main-header {
+    background: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); 
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+    transition: padding 0.3s ease, box-shadow 0.3s ease; 
+}
+/* Style appliqué via JavaScript au défilement */
+.main-header.scrolled {
+    padding: 10px 0; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: font-size 0.3s ease;
+}
+
+.main-header.scrolled .logo {
+    font-size: 1.5rem; 
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--primary-color);
+}
+/* ======================== RESPONSIVE DESIGN (Mobile) ======================== */
+/* ======================== RESPONSIVE DESIGN (Mobile) - MENU PLEIN ÉCRAN GLISSANT HAUT/BAS ======================== */
+@media (max-width: 900px) {
+     .close-btn{
+    display: block;
+}
+    
+    /* Structure du Header sur mobile (conserve le logo et le toggle) */
+    .main-header .container {
+        display: flex; 
+        justify-content: space-between;
+        align-items: center; 
+        flex-wrap: nowrap; 
+    }
+    
+    
+    .menu-toggle {
+        display: block; 
+        order: 2; 
+        z-index: 2000; 
+        font-size: 1.5rem;
+        border: none;
+        background: none;
+        color: var(--primary-color);
+        cursor: pointer;
+    }
+    
+    /* --- NOUVELLE GESTION DU MENU FULLSCREEN SLIDE-DOWN --- */
+    
+    .main-nav {
+        /* Position Fixe pour couvrir tout l'écran */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Utiliser 100vh pour garantir la hauteur de la fenêtre */
+        z-index: 1500;
+        
+        /* État Initial (Masqué en Haut) */
+        /* Décalé au-delà du haut de l'écran */
+        transform: translateY(-100%); 
+        opacity: 0; 
+        visibility: hidden; 
+        pointer-events: none;
+        
+        /* Transition pour l'animation de glissement vertical */
+        transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease-out, visibility 0.6s;
+        
+        /* Design du fond du menu (Gardons le Vert Océan du thème Tropical Chic) */
+        background: var(--primary-color); 
+        
+        /* Centre les liens au milieu de l'écran */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    
+    /* 2. État Ouvert (via JS) */
+    .main-nav.nav-open {
+        transform: translateY(0); /* Glisse vers le bas pour couvrir l'écran */
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    /* Styles du bouton de Fermeture (✕) */
+    .close-btn {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        font-size: 2.5rem;
+        color: white; /* Couleur claire sur le fond Vert Océan */
+        cursor: pointer;
+        z-index: 1600;
+        transition: color 0.2s;
+    }
+
+    .close-btn:hover {
+        color: var(--secondary-color); /* Or/Jaune Sable au survol */
+    }
+
+    /* Styles des liens DANS le menu plein écran */
+    .main-nav ul {
+        flex-direction: column; 
+        text-align: center;
+        list-style: none;
+        /* Ajout d'un padding pour ne pas être caché par le bouton de fermeture */
+        padding-top: 50px; 
+    }
+
+    .main-nav ul li {
+        margin: 20px 0;
+    }
+
+    .main-nav ul li a {
+        color: white; 
+        font-size: 2rem; 
+        font-weight: 700;
+        padding: 15px 0;
+    }
+
+    .main-nav ul li a:hover {
+        color: var(--secondary-color); 
+    }
+
+    .main-nav ul li a.btn-primary {
+        margin-top: 30px;
+        font-size: 1.5rem;
+        background: var(--secondary-color);
+        color: var(--text-color-dark);
+    }
+    
+    /* --- Le reste de vos règles media query --- */
+    .footer-col {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Dans la section HEADER & NAVIGATION (VERSION CLAIRE ET FIXE) */
+
+
+
+/* ======================== SECTION CONTACT SPECIFIQUE (STYLE INCRUSTÉ) ======================== */
+
+.contact-section {
+    padding: 80px 0;
+    /* Nous allons utiliser une image de fond subtile de sable ou de palmes si l'image est disponible,
+       sinon, on utilise un fond de couleur claire qui contraste avec le blanc des cartes. */
+    background-color: var(--light-bg); 
+}
+
+.contact-section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.contact-section .subtitle {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 50px;
+    /* Conteneur principal avec une ombre profonde pour l'effet 'bloc' */
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form-area h3, .contact-info-area h3 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--secondary-color); /* Ligne dorée */
+    padding-bottom: 8px;
+    font-size: 1.5rem;
+}
+
+/* Styles pour le Formulaire */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color-dark);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 15px; /* Plus d'espace intérieur */
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Bords légèrement arrondis */
+    font-family: var(--font-stack);
+    font-size: 1rem;
+    background: #fcfcfc; /* Très légèrement différent du fond de la grille */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animation au focus */
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(197, 228, 228, 0.2);
+    outline: none;
+}
+
+/* Messages d'erreur */
+.error-text {
+    color: #cc0000;
+    font-size: 0.9rem;
+}
+
+/* Styles pour les Informations de Contact */
+.contact-info-area {
+    padding-left: 30px;
+    border-left: 1px solid #eee; /* Séparateur visuel simple */
+}
+
+.info-block {
+    margin-bottom: 30px;
+    padding: 0; /* Retirer le padding pour aligner avec le nouveau design */
+    background: transparent;
+    border-left: none;
+}
+
+.info-block h4 {
+    color: var(--secondary-color); /* Titres des infos en Or */
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.info-block p {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.info-block .info-link {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+#map-placeholder {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Responsive pour la page Contact */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr; 
+        padding: 30px;
+    }
+    
+    .contact-info-area {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid #eee; /* Ajouter une ligne de séparation au-dessus des infos */
+        padding-top: 30px;
+        margin-top: 20px;
+    }
+}
+
+
+
+
+
+/* ======================== PAGE DÉTAIL DE LA PROPRIÉTÉ ======================== */
+
+.property-detail {
+    padding: 40px 0 80px 0;
+}
+
+.detail-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.detail-header h1 {
+    font-size: 2.5rem;
+    color: var(--text-color-dark);
+}
+
+.location-tag {
+    color: #888;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.price-display {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 10px;
+}
+
+.price-amount {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    font-weight: 800;
+}
+
+/* GRILLE PRINCIPALE (Galerie + Réservation) */
+.gallery-and-booking-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2/3 pour le contenu, 1/3 pour la sidebar */
+    gap: 40px;
+}
+
+/* ------------------- GALERIE D'IMAGES ------------------- */
+.image-gallery {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.main-image img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.thumbnail-images {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.thumbnail-images img {
+    width: 23%; /* 4 images, donc environ 25% moins le gap */
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, border 0.2s;
+    border: 3px solid transparent;
+}
+
+.thumbnail-images img:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+}
+
+/* ------------------- DESCRIPTION ET AMÉNAGEMENTS ------------------- */
+.description-area h2 {
+    text-align: left;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+}
+
+.description-area h3 {
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Grille des aménagements (tropicale) */
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.amenity-item {
+    background: var(--card-bg);
+    padding: 15px;
+    border-left: 5px solid var(--secondary-color); /* Touche dorée */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-weight: 600;
+    color: var(--text-color-dark);
+}
+
+.description-area ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+/* ------------------- SIDEBAR DE RÉSERVATION ------------------- */
+.booking-sidebar {
+    position: sticky; /* Reste visible au scroll */
+    top: 100px; /* Espace sous le header */
+    align-self: flex-start; /* Se colle en haut */
+}
+
+.booking-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.booking-card h3 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+}
+
+.booking-card .form-group input, 
+.booking-card .form-group select {
+    padding: 12px;
+}
+
+.total-summary {
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+    padding: 15px 0;
+    margin: 20px 0;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.total-summary h4 {
+    color: var(--text-color-dark);
+    font-size: 1.3rem;
+    margin-top: 10px;
+}
+
+.contact-prompt {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.contact-prompt .info-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* ======================== RESPONSIVE DÉTAIL DE LA PROPRIÉTÉ ======================== */
+@media (max-width: 900px) {
+    .gallery-and-booking-grid {
+        grid-template-columns: 1fr; /* Passage à une colonne unique sur mobile */
+        gap: 30px;
+    }
+
+    .booking-sidebar {
+        position: static; /* Retire le sticky sur mobile pour qu'il soit sous la description */
+        order: 3;
+    }
+
+    .main-content-area {
+        order: 2;
+    }
+    
+    .main-image img {
+        height: 300px; /* Réduire la taille de l'image principale sur mobile */
+    }
+
+    .thumbnail-images {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .thumbnail-images img {
+        width: 48%; /* Deux par ligne */
+        height: 120px;
+    }
+}
+/* Style pour s'assurer que le lien englobant n'a pas de bordure et remplit l'espace */
+.property-card-link {
+    text-decoration: none; /* Enlève le soulignement du lien */
+    color: inherit; /* Hérite de la couleur du texte principal */
+    display: block; /* S'assure qu'il prend toute la place dans la grille */
+}
+
+/* Applique l'effet de survol (transform: translateY) au lien lui-même */
+.property-card-link .property-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* S'assurer que la carte ne change pas de style de lien */
+.property-card-link .card-info h4 {
+    color: var(--primary-color);
+}
